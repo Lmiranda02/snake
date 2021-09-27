@@ -7,6 +7,14 @@ import pygame, sys, time, random
 frame_size_x = 720
 frame_size_y = 480
 
+#Music
+pygame.init()
+pygame.mixer.music.load('music/rise_and_shine.mp3')
+pygame.mixer.music.play(-1)
+
+#Efecto
+effect= pygame.mixer.Sound('music/snake_effect.wav')
+
 #Difficulty
 difficulty = input("Ingresa nivel de dificultad (1:Fácil, 2:Medio, 3:Difícil): ")
 assert difficulty.isdigit(), "El valor ingresado debe ser un número entre 1 y 3"
@@ -124,6 +132,7 @@ while True:
     # Snake body growing mechanism
     snake_body.insert(0, list(snake_pos))
     if snake_pos[0] == food_pos[0] and snake_pos[1] == food_pos[1]:
+        effect.play()
         score += 1
         food_spawn = False
     else:
