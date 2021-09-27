@@ -12,8 +12,8 @@ difficulty = input("Ingresa nivel de dificultad (1:Fácil, 2:Medio, 3:Difícil):
 assert difficulty.isdigit(), "El valor ingresado debe ser un número entre 1 y 3"
 difficulty = int(difficulty)
 assert difficulty in [1,2,3,4], "El valor ingresado debe ser un número entre 1 y 3"
-#difficulty = (difficulty**2)*10
-difficulty = 200
+difficulty = (difficulty**2)*10
+
 
 # Checks for errors encountered
 check_errors = pygame.init()
@@ -24,7 +24,7 @@ if check_errors[1] > 0:
     sys.exit(-1)
 else:
     print('[+] Game successfully initialised')
-    
+
 pygame.display.set_caption('Snake')
 game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
 
@@ -65,8 +65,8 @@ def game_over():
     time.sleep(3)
     pygame.quit()
     sys.exit()
-    
-    
+
+
 # Score
 def show_score(choice, color, font, size):
     score_font = pygame.font.SysFont(font, size)
@@ -78,7 +78,7 @@ def show_score(choice, color, font, size):
         score_rect.midtop = (frame_size_x/2, frame_size_y/1.25)
     game_window.blit(score_surface, score_rect)
     # pygame.display.flip()
-    
+
 
 # Main logic
 while True:
