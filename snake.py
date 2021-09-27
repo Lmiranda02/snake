@@ -8,6 +8,7 @@ frame_size_x = 720
 frame_size_y = 480
 
 #Music
+pygame.init()
 pygame.mixer.music.load('music/rise_and_shine.mp3')
 pygame.mixer.music.play(-1)
 
