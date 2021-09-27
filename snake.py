@@ -7,6 +7,10 @@ import pygame, sys, time, random
 frame_size_x = 720
 frame_size_y = 480
 
+#Music
+pygame.mixer.music.load('music/rise_and_shine.mp3')
+pygame.mixer.music.play(-1)
+
 #Difficulty
 difficulty = input("Ingresa nivel de dificultad (1:Fácil, 2:Medio, 3:Difícil): ")
 assert difficulty.isdigit(), "El valor ingresado debe ser un número entre 1 y 3"
@@ -24,7 +28,7 @@ if check_errors[1] > 0:
     sys.exit(-1)
 else:
     print('[+] Game successfully initialised')
-    
+
 pygame.display.set_caption('Snake')
 game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
 
@@ -65,8 +69,8 @@ def game_over():
     time.sleep(3)
     pygame.quit()
     sys.exit()
-    
-    
+
+
 # Score
 def show_score(choice, color, font, size):
     score_font = pygame.font.SysFont(font, size)
@@ -78,7 +82,7 @@ def show_score(choice, color, font, size):
         score_rect.midtop = (frame_size_x/2, frame_size_y/1.25)
     game_window.blit(score_surface, score_rect)
     # pygame.display.flip()
-    
+
 
 # Main logic
 while True:
